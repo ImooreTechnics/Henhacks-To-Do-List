@@ -1,4 +1,8 @@
 class Assignment:
+    def __init__(self):
+        self.grade = 0.0
+        self.dueDate = "YYYY-MM-DD"
+
     def __init__(self, grade, dueDate, weight, priority):
         self.grade = grade
         self.dueDate = dueDate
