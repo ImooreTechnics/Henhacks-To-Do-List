@@ -1,4 +1,4 @@
-from course.py import Assignment, Course
+from course import Assignment
 
 class Task:
     def __init__(self, description, due_date, priority, category):
@@ -20,5 +20,9 @@ def add_task(tasks):
 def view_tasks(tasks):
     print("To-Do List:")
     for i, task in enumerate(tasks):
-        status = "Completed" if task.completed else "Pending"
+        if task.completed:
+            status = "Completed"  
+        else:
+            status = "Pending"
+
         print(f"{i+1}. [{status}] {task.description} - Due: {task.due_date}, Priority: {task.priority}, Category: {task.category}")
