@@ -1,11 +1,13 @@
 class Assignment:
-    grade = 0.0
-    dueDate = "YYYY-MM-DD"
-    weight = 0.0
-    priority = 0
+    def __init__(self, grade, dueDate, weight, priority):
+        self.grade = grade
+        self.dueDate = dueDate
+        self.weight = weight
+        self.priority = priority
     pass
 
 
 class Course:
+    grades = []
 
     pass
