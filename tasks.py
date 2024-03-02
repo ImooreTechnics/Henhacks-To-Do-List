@@ -1,7 +1,7 @@
 from course import Assignment
 
 class Task:
-    def __init__(self, description, due_date, priority, category):
+    def __init__(self, description, dueDate, priority, category):
         self.description = description
         self.dueDate = dueDate
         self.priority = priority
@@ -23,6 +23,6 @@ def view_tasks(tasks):
         if task.completed:
             status = "Completed"  
         else:
-            status = "Pending"
+            status = "Open"
 
         print(f"{i+1}. [{status}] {task.description} - Due: {task.due_date}, Priority: {task.priority}, Category: {task.category}")
