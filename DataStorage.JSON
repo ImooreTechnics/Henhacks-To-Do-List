@@ -1,40 +1,34 @@
 [
     {
-        "grade": "A",
-        "dueDate": "",
-        "priority": ""
-    },
-    {
-        "grade": "C-",
-        "dueDate": "",
-        "priority": ""
-    },
-    {
+      "test_name": "Test 1",
+      "input": {
+        "description": "Complete trigonometry assignment",
+        "due_date": "2024-03-10",
+        "priority": "High",
+        "category": "Math"
+      },
+      "expected_output": {
         "description": "Complete trigonometry assignment",
         "due_date": "2024-03-10",
         "priority": "High",
         "category": "Math",
         "completed": false
+      }
     },
     {
+      "test_name": "Test 2",
+      "input": {
+        "description": "Study for calculus exam",
+        "due_date": "2024-03-15",
+        "priority": "High",
+        "category": "Math"
+      },
+      "expected_output": {
         "description": "Study for calculus exam",
         "due_date": "2024-03-15",
         "priority": "High",
         "category": "Math",
         "completed": false
-    },
-    {
-        "description": "Write essay on Shakespeare",
-        "due_date": "2024-03-20",
-        "priority": "Medium",
-        "category": "English",
-        "completed": false
-    },
-    {
-        "description": "Prepare presentation for history class",
-        "due_date": "2024-03-25",
-        "priority": "Low",
-        "category": "History",
-        "completed": false
+      }
     }
-]
+  ]
