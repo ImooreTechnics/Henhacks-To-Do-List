@@ -12,7 +12,6 @@ class Assignment:
     def addGrade(self, grade):
         self.grade = grade
 
-
 class Course:
     @staticmethod
     def gpaCalc(assignments):
