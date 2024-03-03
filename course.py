@@ -1,16 +1,22 @@
 class Assignment:
     def editAssignment(self):
+        self.name = input("Enter a name: ")
         self.dueDate = input("Enter the due date (YYYY-MM-DD): ")
         self.priority = input("Enter priority High/Medium/Low: ")
 
     def __init__(self):
+        self.name = "Unknown"
         self.grade = "A"
         self.dueDate = "YYYY-MM-DD"
         self.priority = "Unknown"
         self.editAssignment()
 
+    def __str__(self):
+        return f"{self.name} is due at {self.dueDate}: {self.priority} priority"
+
     def addGrade(self, grade):
         self.grade = grade
+
 
 class Course:
     @staticmethod
