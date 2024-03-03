@@ -17,6 +17,15 @@ class Assignment:
     def addGrade(self, grade):
         self.grade = grade
 
+    def toDict(self):
+        val = {
+            "name": self.name,
+            "grade": self.grade,
+            "dueDate": self.dueDate,
+            "priority": self.priority
+        }
+        return val
+
 
 class Course:
     @staticmethod
