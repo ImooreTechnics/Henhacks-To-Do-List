@@ -11,28 +11,22 @@ def load_data_from_json(filename):
         data = json.load(json_file)
     return data
 
-# Create some assignments
-trig_assignment = Assignment()
-trig_assignment.addGrade("A")
+def run_tests(test_data):
+    for item in test_data:
+        if "grade" in item:
+            assignment = Assignment()
+            assignment.addGrade(item["grade"])
+            print(f"Assignment created: {assignment}")
+        else:
+            description = item["description"]
+            due_date = item["due_date"]
+            priority = item["priority"]
+            category = item["category"]
+            task = Task(description, due_date, priority, category)
+            print(f"Task created: {task}")
 
-calc_assignment = Assignment()
-calc_assignment.addGrade("C-")
+# Load test data from JSON file
+test_data = load_data_from_json('DataStorage.JSON')
 
-# Create some tasks
-task1 = Task("Complete trigonometry assignment", "2024-03-10", "High", "Math")
-task2 = Task("Study for calculus exam", "2024-03-15", "High", "Math")
-task3 = Task("Write essay on Shakespeare", "2024-03-20", "Medium", "English")
-task4 = Task("Prepare presentation for history class", "2024-03-25", "Low", "History")
-
-# Create a list of assignments and tasks
-assignments_and_tasks = [trig_assignment.__dict__, calc_assignment.__dict__, task1.__dict__, task2.__dict__, task3.__dict__, task4.__dict__]
-
-# Save the data to JSON file
-save_data_to_json(assignments_and_tasks, 'DataStorage.json')
-
-# Load the data from JSON file
-loaded_data = load_data_from_json('DataStorage.json')
-
-# Print the loaded data
-for item in loaded_data:
-    print(item)
+# Run tests
+run_tests(test_data)
