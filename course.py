@@ -46,11 +46,3 @@ class Course:
 
     def removeAssignment(self, assignment):
         self.assignments.remove(assignment)
-
-
-Trig = Assignment()
-Trig.addGrade("A")
-Calc = Assignment()
-Calc.addGrade("C-")
-Math = Course([Trig, Calc])
-print(Math.grade)
