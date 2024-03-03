@@ -51,6 +51,36 @@ def add_assignment_to_datastorage():
     save_data_to_json(assignments, 'DataStorage.JSON')
     print("Assignment added successfully!")
 
+def remove_task_from_datastorage():
+    # Prompt the user for deleting a task
+    answer = input("Do you want to delete a task? (yes/no): ").lower()
+    if answer == "yes":
+        # Load existing data from JSON file
+        assignments = load_data_from_json('DataStorage.JSON')
+
+        # Prompt the user for the name of the task to remove
+        task_name = input("Enter the name of the task to remove: ")
+
+        # Find and remove the task with the given name
+        removed = False
+        for assignment in assignments:
+            if assignment.get("description") == task_name:
+                assignments.remove(assignment)
+                removed = True
+                print(f"Task '{task_name}' removed successfully!")
+                break
+
+        if not removed:
+            print(f"Task '{task_name}' not found.")
+
+        # Save the updated data back to JSON file
+        save_data_to_json(assignments, 'DataStorage.JSON')
+
+    elif answer == "no":
+        print("No tasks will be removed.")
+    else:
+        print("Invalid input. Please enter 'yes' or 'no'.")
+
 # Load test data from JSON file
 test_data = load_data_from_json('DataStorage.JSON')
 
@@ -59,3 +89,6 @@ run_tests(test_data)
 
 # Add a new assignment to the data storage
 add_assignment_to_datastorage()
+
+# Remove a task if the user wants to
+remove_task_from_datastorage()
