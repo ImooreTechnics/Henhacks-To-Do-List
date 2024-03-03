@@ -1,6 +1,6 @@
 import json
 from course import Assignment
-from task import Task
+from tasks import Task
 
 def save_data_to_json(data, filename):
     with open(filename, 'w') as json_file:
