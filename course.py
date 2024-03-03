@@ -1,22 +1,42 @@
 class Assignment:
-    def __init__(self):
-        self.grade = 0.0
-        self.dueDate = "YYYY-MM-DD"
-        self.weight = 0.0
-        self.priority = 0
+    def editAssignment(self):
+        self.dueDate = input("Enter the due date (YYYY-MM-DD): ")
+        self.priority = input("Enter priority High/Medium/Low: ")
 
-    def __init__(self, grade, dueDate, weight, priority):
+    def __init__(self):
+        self.grade = "A"
+        self.dueDate = "YYYY-MM-DD"
+        self.priority = "Unknown"
+        self.editAssignment()
+
+    def addGrade(self, grade):
         self.grade = grade
-        self.dueDate = dueDate
-        self.weight = weight
-        self.priority = priority
-    pass
 
 
 class Course:
-    def __init__(self, assignments, grade):
+    @staticmethod
+    def gpaCalc(assignments):
+        points = 0.0
+        gradeVals = {
+            "A": 4.0,
+            "A-": 3.667,
+            "B+": 3.333,
+            "B": 3.0,
+            "B-": 2.667,
+            "C+": 2.333,
+            "C": 2.0,
+            "C-": 1.667,
+            "D+": 1.333,
+            "D-": 1.0,
+            "F": 0.0
+        }
+        for i in assignments:
+            points += gradeVals[i.grade]
+        return points/len(assignments)
+
+    def __init__(self, assignments):
         self.assignments = assignments
-        self.grade = grade
+        self.grade = self.gpaCalc(assignments)
 
     def __str__(self):
         return f"{len(self.assignments)} assignments left.{self.grade}"
@@ -27,4 +47,10 @@ class Course:
     def removeAssignment(self, assignment):
         self.assignments.remove(assignment)
 
-    pass
+
+Trig = Assignment()
+Trig.addGrade("A")
+Calc = Assignment()
+Calc.addGrade("C-")
+Math = Course([Trig, Calc])
+print(Math.grade)
